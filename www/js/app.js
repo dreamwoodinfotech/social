@@ -26,13 +26,25 @@ angular.module('starter', ['ionic','ngCordova'])
 .controller("share",function($ionicPlatform,$scope,$cordovaSocialSharing){
   $scope.sharetoall = function(message, image, link){
     console.info("in social share button");
-    var message = "Hi this from ionic";
+    /*var message = "Hi this from ionic";
     var image = "img/ionic.png";
-    var link = "https://www.thepolyglotdeveloper.com";
-      $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
-            $cordovaSocialSharing.shareViaTwitter(message, image, link);
-        }, function(error) {
-            alert("Cannot share on Twitter");
-        });
+    var link = "https://www.thepolyglotdeveloper.com";*/
+
+      /*$cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
+          $cordovaSocialSharing.shareViaTwitter(message, image, link);
+          console.warn("here twitter called");
+          alert("posted");
+      }, function(error) {
+          alert("Cannot share on Twitter");
+      });*/
+    $cordovaSocialSharing.share(message, subject, null, link) // Share via native share sheet
+      .then(function(result) {
+        alert("shared on all");
+      }, function(err) {
+        alert("Cannot share on alll");
+    });
+
+
+
   };
 })
