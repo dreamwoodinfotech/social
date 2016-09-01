@@ -26,8 +26,10 @@ angular.module('starter', ['ionic','ngCordova'])
 .controller("share",function($ionicPlatform,$scope,$cordovaSocialSharing){
   $scope.sharetoall = function(message, image, link){
     console.info("in social share button");
-
-      $cordovaSocialSharing.canShareVia("twitter", "Hi this from ionic", "img/ionic.png", "https://www.thepolyglotdeveloper.com").then(function(result) {
+    var message = "Hi this from ionic";
+    var image = "img/ionic.png";
+    var link = "https://www.thepolyglotdeveloper.com";
+      $cordovaSocialSharing.canShareVia("twitter", message, image, link).then(function(result) {
             $cordovaSocialSharing.shareViaTwitter(message, image, link);
         }, function(error) {
             alert("Cannot share on Twitter");
